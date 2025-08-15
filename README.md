@@ -1,2 +1,2 @@
-# internship-task1-submission
+# internship-submission
 Submission for internship task1 with related files and code.
