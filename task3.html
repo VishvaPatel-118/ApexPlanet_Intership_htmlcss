@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Quiz & API App</title>
+  <style>
+    /* --- Base Styles --- */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #343a40;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: #ccc;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    main {
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #007BFF;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .answer-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background: #f1f1f1;
+    color: #333; /* <-- Add this line */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+    .answer-btn:hover {
+      background: #e2e6ea;
+    }
+
+    footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* --- Responsive Styles --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 0.25rem 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 0.75rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Responsive Quiz & API App</h1>
+    <nav>
+      <a href="#quiz">Quiz</a>
+      <a href="#joke">Joke</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- TASK 2: JavaScript Interactive Quiz -->
+    <section id="quiz">
+      <h2>Task 2: Quiz</h2>
+      <div id="question-container"></div>
+      <button id="next-btn">Next Question</button>
+    </section>
+
+    <!-- TASK 3: API Integration -->
+    <section id="joke">
+      <h2>Task 3: Fetch a Joke (API)</h2>
+      <button id="get-joke">Tell me a joke</button>
+      <p id="joke-text" style="margin-top: 1rem;">Click the button to see a joke.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Responsive Project - All tasks completed.
+  </footer>
+
+  <script>
+    // === TASK 2: Interactive Quiz ===
+    const questions = [
+      {
+        question: "What is the capital of Italy?",
+        answers: ["Rome", "Paris", "Madrid", "Berlin"],
+        correct: "Rome"
+      },
+      {
+        question: "Which of the following is a JavaScript data type?",
+        answers: ["String", "List", "Element", "Document"],
+        correct: "String"
+      }
+    ];
+
+    let currentQuestion = 0;
+
+    const questionContainer = document.getElementById("question-container");
+    const nextBtn = document.getElementById("next-btn");
+
+    function showQuestion(index) {
+      const q = questions[index];
+      questionContainer.innerHTML = `
+        <p><strong>Q${index + 1}:</strong> ${q.question}</p>
+        ${q.answers.map(ans => `<button class="answer-btn">${ans}</button>`).join("")}
+      `;
+    }
+
+    questionContainer.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("answer-btn")) return;
+
+      const selected = e.target.textContent;
+      const correct = questions[currentQuestion].correct;
+
+      if (selected === correct) {
+        alert(" Correct!");
+      } else {
+        alert(" Incorrect. The right answer is: " + correct);
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        showQuestion(currentQuestion);
+      } else {
+        questionContainer.innerHTML = "<p>🎉 Quiz completed! Well done.</p>";
+        nextBtn.style.display = "none";
+      }
+    });
+
+    showQuestion(currentQuestion);
+
+    // === TASK 3: Fetch Joke from API ===
+    const jokeBtn = document.getElementById("get-joke");
+    const jokeText = document.getElementById("joke-text");
+
+    jokeBtn.addEventListener("click", async () => {
+      jokeText.textContent = "Loading...";
+      try {
+        const res = await fetch("https://icanhazdadjoke.com/", {
+          headers: { Accept: "application/json" }
+        });
+        const data = await res.json();
+        jokeText.textContent = "😂 " + data.joke;
+      } catch (err) {
+        jokeText.textContent = "Oops! Failed to fetch a joke.";
+      }
+    });
+  </script>
+</body>
+</html>
