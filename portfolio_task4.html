@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Task 4</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f6ff;
+      color: #333;
+    }
+
+    /* Navbar */
+    nav {
+      background: #a066e0;
+      padding: 15px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffe066;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      text-align: center;
+      padding: 50px 20px 100px 20px;
+    }
+    .portfolio h1 {
+      color: #6a11cb;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      width: 250px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      color: #6a11cb;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .card button {
+      background: #a066e0;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .card button:hover {
+      background: #6a11cb;
+    }
+
+    /* Footer */
+    footer {
+      background: #a066e0;
+      padding: 15px;
+      text-align: center;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="nav_task4.html">Home</a>
+    <a href="portfolio_task4.html">Portfolio</a>
+    <a href="todo_task4.html">To-Do App</a>
+    <a href="products_task4.html">Products</a>
+  </nav>
+
+  <!-- Portfolio Section -->
+  <div class="portfolio">
+    <h1>📂 My Projects</h1>
+    <div class="cards-container">
+      <div class="card">
+        <h3>💻 CRUD App</h3>
+        <p>Built with PHP & MySQL to manage data efficiently.</p>
+        <button onclick="alert('Viewing CRUD App')">View More</button>
+      </div>
+      <div class="card">
+        <h3>🍴 Foodie Hub</h3>
+        <p>Laravel project for food ordering and reservation system.</p>
+        <button onclick="alert('Viewing Foodie Hub')">View More</button>
+      </div>
+      <div class="card">
+        <h3>👗 Pretty Threads</h3>
+        <p>Flutter boutique app with smooth UI and onboarding screens.</p>
+        <button onclick="alert('Viewing Pretty Threads')">View More</button>
+      </div>
+      <div class="card">
+        <h3>📱 To-Do App</h3>
+        <p>Interactive task management with localStorage support.</p>
+        <button onclick="alert('Viewing To-Do App')">View More</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Vishva Patel | All Rights Reserved</p>
+  </footer>
+</body>
+</html>

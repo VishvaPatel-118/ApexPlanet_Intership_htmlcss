@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App - Task 4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f6ff;
+      color: #333;
+      text-align: center;
+    }
+
+    /* Navbar */
+    nav {
+      background: #a066e0;
+      padding: 15px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffe066;
+    }
+
+    /* To-Do Container */
+    .todo-container {
+      margin: 50px auto;
+      max-width: 400px;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .todo-container h1 {
+      color: #6a11cb;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #a066e0;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    input {
+      width: 70%;
+    }
+
+    button {
+      background: #a066e0;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #6a11cb;
+    }
+
+    /* Task List */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    li {
+      background: #f0e6ff;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li button {
+      background: #ff4d4d;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 5px 8px;
+      font-size: 14px;
+    }
+    li button:hover {
+      background: #cc0000;
+    }
+
+    /* Footer */
+    footer {
+      background: #a066e0;
+      padding: 15px;
+      text-align: center;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="nav_task4.html">Home</a>
+    <a href="portfolio_task4.html">Portfolio</a>
+    <a href="todo_task4.html">To-Do App</a>
+    <a href="products_task4.html">Products</a>
+  </nav>
+
+  <!-- To-Do Section -->
+  <div class="todo-container">
+    <h1>✅ To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Vishva Patel | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      taskList.innerHTML = "";
+      tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `${task} <button onclick="deleteTask(${index})">❌</button>`;
+        taskList.appendChild(li);
+      });
+    }
+
+    function addTask() {
+      const task = taskInput.value.trim();
+      if (task) {
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        taskInput.value = "";
+        loadTasks();
+      } else {
+        alert("⚠️ Please enter a task!");
+      }
+    }
+
+    function deleteTask(index) {
+      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks.splice(index, 1);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      loadTasks();
+    }
+
+    window.onload = loadTasks;
+  </script>
+</body>
+</html>
