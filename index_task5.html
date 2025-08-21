@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce | Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>  
+    body { 
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f3f4f6;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #7b2ff7, #f107a3);
+      color: #fff;
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav ul {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav li { margin: 0 15px; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+      font-size: 1rem;
+    }
+    nav a:hover { color: #ffd700; }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(90deg,#7b2ff7,#f107a3);
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .hero a {
+      background: #fff;
+      color: #7b2ff7;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+    }
+    .hero a:hover { background: #ffd700; color: #000; }
+
+    /* Features Section */
+    .features {
+      max-width: 1100px;
+      margin: 3rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    .feature-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,.08);
+      transition: .3s;
+    }
+    .feature-box:hover { transform: translateY(-5px); }
+    .feature-box h3 {
+      color: #6200ea;
+      margin-bottom: 0.8rem;
+    }
+    .feature-box p { font-size: 0.95rem; line-height: 1.5; }
+
+    /* About Section */
+    .about {
+      background: #fff;
+      margin: 3rem auto;
+      max-width: 1000px;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,.1);
+      text-align: center;
+    }
+    .about h2 {
+      color: #7b2ff7;
+      margin-bottom: 1rem;
+    }
+    .about p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #333;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    footer p { margin: 0; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>MyShop</h1>
+  <nav>
+    <ul>
+      <li><a href="index_task5.html">Home</a></li>
+      <li><a href="products_task5.html">Products</a></li>
+      <li><a href="about_task5.html">About</a></li>
+      <li><a href="contact_task5.html">Contact</a></li>
+      <li><a href="cart_task5.html">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h2>Welcome to MyShop</h2>
+  <p>Discover amazing fashion & lifestyle products at unbeatable prices</p>
+  <a href="products_task5.html">Shop Now</a>
+</section>
+
+<!-- Features Section -->
+<div class="features">
+  <div class="feature-box">
+    <h3>✨ Premium Quality</h3>
+    <p>We bring you the best quality fashion & lifestyle products that are crafted with love and care.</p>
+  </div>
+  <div class="feature-box">
+    <h3>⚡ Fast Delivery</h3>
+    <p>Your favorite products delivered at lightning speed, right at your doorstep with 100% safety.</p>
+  </div>
+  <div class="feature-box">
+    <h3>💬 24/7 Support</h3>
+    <p>Our customer support team is always here to help you with your orders and queries anytime.</p>
+  </div>
+</div>
+
+<!-- About Section -->
+<section class="about">
+  <h2>About MyShop</h2>
+  <p>
+    At <b>MyShop</b>, we believe shopping should be fun, affordable, and accessible to everyone.  
+    With thousands of curated fashion items, lifestyle essentials, and unbeatable deals,  
+    we aim to provide an unforgettable shopping experience.  
+    <br><br>
+    Join our community of happy customers and explore a new world of online shopping with us!
+  </p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 MyShop | Designed with ❤️ | All Rights Reserved</p>
+</footer>
+</body>
+</html>

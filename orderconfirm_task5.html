@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation</title>
+  <style>
+    body {
+      margin: 0; font-family: Arial, sans-serif;
+      background: #f9f6ff; color: #333;
+    }
+    nav {
+      background: #a066e0; padding: 15px; text-align: center;
+    }
+    nav a {
+      color: white; text-decoration: none;
+      margin: 0 20px; font-weight: bold; font-size: 18px;
+    }
+    nav a:hover { color: #ffe066; }
+    .container {
+      width: 80%; margin: 50px auto; text-align: center;
+    }
+    .order-card {
+      background: white; padding: 20px; margin: 15px auto;
+      border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 500px; text-align: left;
+    }
+    h2 { color: #6a11cb; }
+    footer {
+      background: #a066e0; padding: 15px; text-align: center;
+      color: white; position: fixed; bottom: 0; width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="nav_task4.html">Home</a>
+    <a href="portfolio_task4.html">Portfolio</a>
+    <a href="todo_task4.html">To-Do App</a>
+    <a href="products_task4.html">Products</a>
+    <a href="cart_task4.html">Cart</a>
+    <a href="checkout_task4.html">Checkout</a>
+  </nav>
+
+  <div class="container">
+    <h1>✅ Order Confirmed!</h1>
+    <p>Thank you for your purchase. Here are your order details:</p>
+    <div id="orderDetails"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Vishva Patel | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function loadOrderDetails() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let detailsDiv = document.getElementById("orderDetails");
+
+      if (cart.length === 0) {
+        detailsDiv.innerHTML = "<p>No products found in your order.</p>";
+        return;
+      }
+
+      cart.forEach(item => {
+        let div = document.createElement("div");
+        div.classList.add("order-card");
+        div.innerHTML = `
+          <h2>${item.name}</h2>
+          <p>Price: ₹${item.price}</p>
+          <p>Quantity: ${item.quantity}</p>
+          <p>Total: ₹${item.price * item.quantity}</p>
+        `;
+        detailsDiv.appendChild(div);
+      });
+
+      // clear cart after order
+      localStorage.removeItem("cart");
+    }
+
+    loadOrderDetails();
+  </script>
+</body>
+</html>

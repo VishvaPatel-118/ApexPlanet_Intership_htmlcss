@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Commerce | Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>
+    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:#f3f4f6;color:#333;}
+    header{background:linear-gradient(90deg,#7b2ff7,#f107a3);color:#fff;padding:1.2rem;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,.1);}
+    header h1{margin:0;font-size:2rem;}
+    nav ul{list-style:none;margin:1rem 0 0;padding:0;display:flex;justify-content:center;flex-wrap:wrap;}
+    nav li{margin:0 15px;}
+    nav a{color:#fff;text-decoration:none;font-weight:bold;transition:.3s;}
+    nav a:hover{color:#ffd700;}
+
+    .container{max-width:1000px;margin:2rem auto;padding:2rem;background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1);}
+    h1{text-align:center;margin-bottom:1rem;color:#6200ea;}
+    h2{text-align:left;margin-bottom:1rem;color:#444;}
+
+    .success{text-align:center;font-size:1.2rem;color:green;font-weight:bold;margin-bottom:2rem;}
+
+    table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;}
+    table th,table td{padding:1rem;text-align:center;border-bottom:1px solid #ddd;}
+    table th{background:#f3f3f3;color:#555;}
+    table img{width:80px;height:80px;object-fit:cover;border-radius:6px;}
+
+    .total{text-align:right;font-size:1.2rem;font-weight:bold;color:#6200ea;margin-top:1rem;}
+    .btn{padding:.7rem 1.5rem;background:linear-gradient(90deg,#7b2ff7,#f107a3);color:#fff;border:none;border-radius:6px;font-weight:bold;cursor:pointer;transition:.3s;}
+    .btn:hover{transform:scale(1.05);background:linear-gradient(90deg,#f107a3,#7b2ff7);}
+    footer{text-align:center;padding:1.2rem;background:#333;color:#fff;margin-top:2rem;}
+  </style>
+</head>
+<body>
+<header>
+  <h1>MyShop</h1>
+  <nav>
+    <ul>
+      <li><a href="index_task5.html">Home</a></li>
+      <li><a href="products_task5.html">Products</a></li>
+      <li><a href="about_task5.html">About</a></li>
+      <li><a href="contact_task5.html">Contact</a></li>
+      <li><a href="cart_task5.html">🛒 Cart</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <h1>Order Confirmation</h1>
+  <p class="success">✅ Thank you for your purchase! Your order has been successfully placed.</p>
+
+  <h2>Order Details</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="t-shirt.webp" alt="T-shirt"><br>Stylish T-shirt</td>
+        <td>$20</td>
+        <td>1</td>
+        <td>$20</td>
+      </tr>
+      <tr>
+        <td><img src="running shoes.webp" alt="Shoes"><br>Running Shoes</td>
+        <td>$40</td>
+        <td>2</td>
+        <td>$80</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="total">
+    Grand Total: $100
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="products_task5.html"><button class="btn">Continue Shopping</button></a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 E-Commerce Project | All Rights Reserved</p>
+</footer>
+</body>
+</html>
